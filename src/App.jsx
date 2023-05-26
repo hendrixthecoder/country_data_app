@@ -7,7 +7,7 @@ const App = () => {
 
   const [search, setCountry] = useState('')
   const [countryList, setCountryList] = useState([])
-  const [result, setResult] = useState(true)
+  const [result, setResult] = useState(false)
 
   const getCountryInfo = () => {
     if (search) {
@@ -32,12 +32,13 @@ const App = () => {
   useEffect(getCountryInfo, [search])
 
   const getCountry = (e) => {
+	setResult(false)
     setCountry(e.target.value)
   }
 
   return (
     <>
-		<h3>This app returns list of countries only when the search returns less than 10 countries, so be more specific with your searches to get results.</h3>
+		<h3>Looking to find some info about some countries? Search below!</h3>
       <form action="">
         <label htmlFor="">Find countries:</label>
         <input type="text" value={search} onChange={getCountry} />
